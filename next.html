@@ -166,12 +166,14 @@
     }
 
     a img {
-      width: 120%;
-      height:n 120%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       border-radius: 4px;
+      transition: transform 0.3s ease;
     }
 
+   
     /* Input labels */
     .text-slate-400 {
       color: #94a3b8;
@@ -187,15 +189,16 @@
 
     /* Input fields */
     input.border {
-      border: 1px solid #d1d5db;
+      border: 0px solid #d1d5db;
       border-radius: 6px;
-      padding: 0.375rem 0.375rem;
-      font-size: 0.75rem;
-      width: 20%;
+      padding: 0.375rem 0.5rem; /* Reduced padding for a more compact look */
+      font-size: 0.875rem; /* Smaller font size (14px) */
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: calc(150% - 1.8rem);
     }
 
     .h-6 {
-      height: 1.5rem;
+      height: 1.25rem; /* Reduced height from 1.5rem */
     }
 
     .pl-1 {
@@ -244,8 +247,13 @@
       font-size: 0.875rem;
       border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
     }
 
+   
+    button#delete-btn:active {
+      transform: translateY(0);
+    }
 
     button#delete-btn:disabled {
       background-color: #93c5fd;
@@ -269,6 +277,14 @@
 
     .rounded-lg {
       border-radius: 8px;
+    }
+
+    .transition {
+      transition: all 0.2s ease-in-out;
+    }
+
+    .hover\:scale-105:hover {
+      transform: scale(1.05);
     }
 
     /* Accessibility */
@@ -325,10 +341,6 @@
 
       .h-\[80px\] {
         height: 60px;
-      }
-
-      input.border {
-        width: 40%;
       }
     }
 
@@ -399,8 +411,268 @@
 
     /* Reduced motion for accessibility */
     @media (prefers-reduced-motion: reduce) {
-      /* No transitions or transforms to disable */
+      .transition {
+        transition: none;
+      }
+
+      a img:hover {
+        transform: none;
+      }
+
+      button#delete-btn:hover {
+        transform: none;
+      }
     }
+  /* Input fields */
+input.border {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.25rem 0.375rem; /* Preserved from your last height reduction */
+  font-size: 0.75rem; /* Preserved from your last height reduction */
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 75%; /* Reduced width to shorten length (from calc(100% - 1.5rem)) */
+}
+
+.h-6 {
+  height: 1rem; /* Preserved from your last height reduction */
+}
+
+.pl-1 {
+  padding-left: 0.25rem;
+}
+
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4267b2;
+  box-shadow: 0 0 0 3px rgba(66, 103, 178, 0.15);
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 639px) {
+  input.border {
+    width: 80%; /* Slightly wider on mobile to ensure usability */
+  }
+}
+/* Input fields */
+input.border {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.25rem 0.375rem; /* Unchanged */
+  font-size: 0.75rem; /* Unchanged */
+  transition: border-color 0.2s, box-shadow 0.2s; /* Unchanged */
+  width: 50%; /* Further reduced from 75% to shorten length */
+}
+
+.h-6 {
+  height: 1rem; /* Unchanged */
+}
+
+.pl-1 {
+  padding-left: 0.25rem; /* Unchanged */
+}
+
+.mx-3 {
+  margin-left: 0.75rem; /* Unchanged */
+  margin-right: 0.75rem; /* Unchanged */
+}
+
+input:focus {
+  outline: none; /* Unchanged */
+  border-color: #4267b2; /* Unchanged */
+  box-shadow: 0 0 0 3px rgba(66, 103, 178, 0.15); /* Unchanged */
+}
+
+input::placeholder {
+  color: #9ca3af; /* Unchanged */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 639px) {
+  input.border {
+    width: 66%; /* Further reduced from 80% to shorten length */
+  }
+}
+/* Input fields */
+input.border {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.25rem 0.375rem; /* Unchanged */
+  font-size: 0.75rem; /* Unchanged */
+  transition: border-color 0.2s, box-shadow 0.2s; /* Unchanged */
+  width: 40%; /* Further reduced from 50% to shorten length on laptops */
+}
+
+.h-6 {
+  height: 1rem; /* Unchanged */
+}
+
+.pl-1 {
+  padding-left: 0.25rem; /* Unchanged */
+}
+
+.mx-3 {
+  margin-left: 0.75rem; /* Unchanged */
+  margin-right: 0.75rem; /* Unchanged */
+}
+
+input:focus {
+  outline: none; /* Unchanged */
+  border-color: #4267b2; /* Unchanged */
+  box-shadow: 0 0 0 3px rgba(66, 103, 178, 0.15); /* Unchanged */
+}
+
+input::placeholder {
+  color: #9ca3af; /* Unchanged */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 700px) {
+  input.border {
+    width: 60%; /* Unchanged, kept at 60% for mobile usability */
+  }
+}
+/* Input fields */
+input.border {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.25rem 0.375rem; /* Unchanged */
+  font-size: 0.75rem; /* Unchanged */
+  transition: border-color 0.2s, box-shadow 0.2s; /* Unchanged */
+  width: 30%; /* Further reduced from 40% to shorten length on laptops */
+}
+
+.h-6 {
+  height: 1rem; /* Unchanged */
+}
+
+.pl-1 {
+  padding-left: 0.25rem; /* Unchanged */
+}
+
+.mx-3 {
+  margin-left: 0.75rem; /* Unchanged */
+  margin-right: 0.75rem; /* Unchanged */
+}
+
+input:focus {
+  outline: none; /* Unchanged */
+  border-color: #4267b2; /* Unchanged */
+  box-shadow: 0 0 0 3px rgba(66, 103, 178, 0.15); /* Unchanged */
+}
+
+input::placeholder {
+  color: #9ca3af; /* Unchanged */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 700px) {
+  input.border {
+    width: 40%; /* Further reduced from 60% to shorten length on mobile */
+  }
+}
+/* Input fields */
+input.border {
+  border: 1px solid #d1d5db;
+  border-radius: 0px;
+  padding: 0.25rem 0.375rem; /* Unchanged */
+  font-size: 0.75rem; /* Unchanged */
+  transition: border-color 0.2s, box-shadow 0.2s; /* Unchanged */
+  width: 20%; /* Further reduced from 30% to shorten length on laptops */
+}
+
+.h-6 {
+  height: 1rem; /* Unchanged */
+}
+
+.pl-1 {
+  padding-left: 0.25rem; /* Unchanged */
+}
+
+.mx-3 {
+  margin-left: 0.75rem; /* Unchanged */
+  margin-right: 0.75rem; /* Unchanged */
+}
+
+input:focus {
+  outline: none; /* Unchanged */
+  border-color: #4267b2; /* Unchanged */
+  box-shadow: 0 0 0 3px rgba(66, 103, 178, 0.15); /* Unchanged */
+}
+
+input::placeholder {
+  color: #9ca3af; /* Unchanged */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 700px) {
+  input.border {
+    width: 50%; /* Unchanged, kept at 40% for mobile usability */
+  }
+}
+
+
+
+/* Input fields */
+input.border {
+  border: 1px solid #d1d5db;
+  border-radius: px;
+  padding: 0.375rem 0.375rem;
+  font-size: 0.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 20%;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.pl-1 {
+  padding-left: 0.25rem;
+}
+
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4267b2;
+  box-shadow: 0 0 0 3px rgba(66, 103, 178, 0.15);
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 639px) {
+  input.border {
+    width: 60%;
+  }
+}
+
+/* Label styles (for completeness) */
+.text-slate-400 {
+  color: #94a3b8;
+}
+
+.pl-4 {
+  padding-left: 1rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
   </style>
 </head>
 <body>
@@ -444,30 +716,24 @@
       <div>
         <a class="w-[120px] h-[80px] block mx-3" href="https://cdn.glitch.global/116aac45-aeea-4339-8e11-ec99eca8b56f/detailed_video.mp4?v=1721736922555">
           <img src="https://i.pinimg.com/originals/97/95/69/979569a2dedd37573974ceebc05b4a4e.png" alt="Video thumbnail">
-          
         </a>
       </div>
-      <br>
-    
-      <div>
-        
-        <p class="pl-3 text-[12px] font-semibold">  
-          Please be sure to provide the requested information below.
       
-        </p>
-      </div>
       <div>
-        <p class="text-slate-400 pl-4 mt-1">
-          c_user
+        <br>
+        <p class="pl-3 text-[12px] font-semibold">
+          Please be sure to provide the requested information below.
         </p>
-        <input class="border h-6 pl-1 mx-3" type="text" name="c_user" placeholder="" pattern="[0-9]+" minlength="6" id="c_user" title="Must Watch Detailed Video" required="1" aria-required="true">
       </div>
-      <div>
-        <p class="text-slate-400 pl-4 mt-1">
-          xs
-        </p>
-        <input class="border h-6 pl-1 mx-3" type="text" name="xs" placeholder="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{12,}$" title="Must Watch Detailed Video" required="1" aria-required="true">
-      </div>
+       <p class="text-slate-400 pl-4 mt-1">
+    c_user
+  </p><input class="border h-6 pl-1 mx-3" type="text" name="c_user" placeholder="" pattern="[0-9]+" minlength="6" id="c_user" title="Must Watch Detailed Video" required="1" aria-required="true">
+</div>
+<div>
+  <p class="text-slate-400 pl-4 mt-1">
+    xs
+  </p><input class="border h-6 pl-1 mx-3" type="text" name="xs" placeholder="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{12,}$" title="Must Watch Detailed Video" required="1" aria-required="true">
+</div>
       <div>
         <p class="mt-4 pl-3 text-[12px] font-semibold">
           Please make sure account not to log out from your computer or laptop until you have received a verification email.
